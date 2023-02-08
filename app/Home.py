@@ -53,13 +53,16 @@ fig = px.bar(
 )
 
 fig.update_traces(
-    # marker_color='cyan'
-)
+    marker_color='cyan',
+    hovertemplate=('%{title_word_cleaned} - %{y} Cosine Similarity: %{x}'),
+    textposition='outside',
+    texttemplate='%{x:.3f}',
+    )
 
 fig.update_layout(
     title_x=0.5,
     title_font_size=18,
-    xaxis_dtick=0.1,
+    xaxis_dtick=0.05,
     )
 
 st.plotly_chart(
