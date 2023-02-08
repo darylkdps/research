@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy
 import pandas as pd
 import plotly.express as px
 import spacy
@@ -45,7 +46,7 @@ fig = px.bar(
     df,
     x='Cosine Similarity',
     y='Content Word',
-    custom_data=[title_word_cleaned],
+    custom_data=np.stack([title_word_cleaned]),
     range_x=[0,1],
     text_auto='.3f',
     text='Cosine Similarity',
