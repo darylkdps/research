@@ -55,7 +55,7 @@ fig = px.bar(
 
 fig.update_traces(
     marker_color='cyan',
-    hovertemplate=('%{custom_data[0]} - %{y}: %{x}'),
+    hovertemplate=('%{customdata[0]} - %{y}: %{x}'),
     textposition='outside',
     texttemplate='%{x:.3f}',
     )
