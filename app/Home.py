@@ -40,13 +40,13 @@ df['Cosine Similarity'] = df.apply(lambda row: nlp.vocab[row['Title Word']].simi
 df = df.sort_values(by=['Cosine Similarity'])
 # st.dataframe(df)
 
-st.write(title_word_cleaned)
+
 
 fig = px.bar(
     df,
     x='Cosine Similarity',
     y='Content Word',
-    custom_data=np.stack([title_word_cleaned], axis=-1),
+    custom_data=pd.Series(data=[title_word_cleaned]),
     range_x=[0,1],
     text_auto='.3f',
     text='Cosine Similarity',
