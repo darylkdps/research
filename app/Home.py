@@ -31,7 +31,7 @@ content_words = st.text_input(
     value=default_content_words,
     )
 
-title_word_cleaned = list(map(str.strip, title_word))
+title_word_cleaned = title_word.strip()
 content_words_cleaned = list(map(str.strip, content_words.split(',')))
 
 df = pd.DataFrame(data={'Title Word': [title_word] * len(content_words_cleaned), 'Content Word': content_words_cleaned})
