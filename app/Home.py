@@ -22,7 +22,7 @@ default_title_word = 'leadership'
 default_content_words = '''paper, pen, priority, decision, effort, mentor, stewardship, education, accountability, governance, leader, visualisation, cuisine, transform, chemistry, translate'''
 
 title_word = st.text_input(
-    label='Input Title Word:',
+    label='Input TITLE WORD:',
     value=default_title_word,
     )
 
