@@ -38,9 +38,7 @@ content_words_cleaned = list(map(str.strip, content_words.split(',')))
 df = pd.DataFrame(data={'Title Word': [title_word] * len(content_words_cleaned), 'Content Word': content_words_cleaned})
 df['Cosine Similarity'] = df.apply(lambda row: nlp.vocab[row['Title Word']].similarity(nlp.vocab[row['Content Word']]), axis=1).astype(float).round(3)
 df = df.sort_values(by=['Cosine Similarity'])
-st.dataframe(df)
-
-
+# st.dataframe(df)
 
 fig = px.bar(
     df,
@@ -58,7 +56,7 @@ fig = px.bar(
 
 fig.update_traces(
     marker_color='cyan',
-    hovertemplate=('%{customdata[0]} - %{y}: %{x}'),
+    hovertemplate=('<i>%{customdata[0]} - %{y}</i>: %{x}'),
     textposition='outside',
     texttemplate='%{x:.3f}',
     )
