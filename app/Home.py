@@ -46,7 +46,7 @@ fig = px.bar(
     df,
     x='Cosine Similarity',
     y='Content Word',
-    custom_data=np.stack([title_word_cleaned]),
+    custom_data=np.stack([title_word_cleaned], axis=-1),
     range_x=[0,1],
     text_auto='.3f',
     text='Cosine Similarity',
