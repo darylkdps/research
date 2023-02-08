@@ -8,7 +8,7 @@ st.set_page_config(
     page_title='Semantic Ruler',
     page_icon='random',
     layout='wide',
-    initial_sidebar_state='auto'
+    initial_sidebar_state='collapsed'
     )
 
 st.title('Semantic Ruler')
