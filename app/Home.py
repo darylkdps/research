@@ -43,7 +43,7 @@ fig = px.bar(
     df,
     x='Cosine Similarity',
     y='Content Word',
-    custom_data=title_word_cleaned,
+    # custom_data=title_word_cleaned,
     range_x=[0,1],
     text_auto='.3f',
     text='Cosine Similarity',
@@ -55,7 +55,7 @@ fig = px.bar(
 
 fig.update_traces(
     marker_color='cyan',
-    hovertemplate=('%{customdata[0]} - %{y}: %{x}'),
+    hovertemplate=('%{title_word_cleaned[0]} - %{y}: %{x}'),
     textposition='outside',
     texttemplate='%{x:.3f}',
     )
