@@ -21,10 +21,10 @@ st.markdown('---')
 st.header('Hardware resource')
 st.markdown(
     '''
-    Laptop\n
-    \tCPU:\tIntel i9-11950H @ 2.60Hz
-    \tGPU:\tNVIDIA RTX A3000 with 6GB VRAM
-    \tRAM:\t32 GB
+    Laptop    
+    - CPU: Intel i9-11950H @ 2.60Hz
+    - GPU: NVIDIA RTX A3000 with 6GB VRAM
+    - RAM: 32 GB
     '''
     )
 
@@ -117,13 +117,12 @@ st.markdown(
     computational study of text. It can be understood as *human-assisted* computer reading.
     
     Following the literature review, operational decisions could be made with regards to key challenges such as:
-
-    1.  What constitute an idea in the context of university students' essays.
-    2.  What constitute a word. In linguistics, the concept of a word does not exists.
-    3.  What constitute novelty, variety, quality, quantity.
-    4.  How to appraise based on novelty, variety, quality, quantity as metrics.
-    5.  What constitute a divergent idea. Creativity and CPS have never been about divergent thinking alone.
-    6.  What constitute a convergent idea.
+    - What constitute an idea in the context of university students' essays.
+    - What constitute a word. In linguistics, the concept of a word does not exists.
+    - What constitute novelty, variety, quality, quantity.
+    - How to appraise based on novelty, variety, quality, quantity as metrics.
+    - What constitute a divergent idea. Creativity and CPS have never been about divergent thinking alone.
+    - What constitute a convergent idea.
     '''
 )
 
