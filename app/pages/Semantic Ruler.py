@@ -11,9 +11,7 @@ st.set_page_config(
     initial_sidebar_state='auto'
     )
 
-metadata1 = {key:value for key, value in nlp.meta.items() if key in {'lang', 'name', 'version', 'vectors'}}
-metadata2 = f"spaCy = {spacy.__version__}, {metadata1['lang']}_{metadata1['name']} = {metadata1['version']} ({metadata1['vectors']['vectors']} vectors with {metadata1['vectors']['width']} dimensions)"
-st.text(metadata2)
+caption_placeholder = st.empty()
 st.title('Semantic Ruler')
 
 @st.cache(allow_output_mutation=True)
@@ -21,6 +19,10 @@ def load_model():
     spacy.require_cpu()
     return spacy.load('en_core_web_lg')
 nlp = load_model()
+
+metadata1 = {key:value for key, value in nlp.meta.items() if key in {'lang', 'name', 'version', 'vectors'}}
+metadata2 = f"spaCy = {spacy.__version__}, {metadata1['lang']}_{metadata1['name']} = {metadata1['version']} ({metadata1['vectors']['vectors']} vectors with {metadata1['vectors']['width']} dimensions)"
+caption_placeholder.caption(metadata2)
 
 default_title_word = 'leadership'
 default_content_words = '''paper, pen, priority, decision, effort, mentor, stewardship, education, accountability, governance, leader, visualisation, cuisine, transform, chemistry, translate'''
