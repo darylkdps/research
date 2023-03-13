@@ -11,8 +11,8 @@ st.set_page_config(
     initial_sidebar_state='auto'
     )
 
-st.title('Semantic Ruler')
 st.caption('spaCy = 3.2.1, en_core_web_lg = 3.2.0')
+st.title('Semantic Ruler')
 
 @st.cache(allow_output_mutation=True)
 def load_model():
