@@ -25,6 +25,8 @@ st.markdown(
     - CPU: Intel i9-11950H @ 2.60Hz
     - GPU: NVIDIA RTX A3000 with 6GB VRAM
     - RAM: 32 GB
+
+    This is a budget level laptop for AI, so most neural network based models will not be accessible.
     '''
     )
 
