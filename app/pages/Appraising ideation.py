@@ -105,7 +105,7 @@ st.markdown(
     ideas. During mid and late stage ideation, emphasis is placed on refining and developing the pool of blue-sky 
     ideas - directed at innovation.
 
-    The quality of an idea can generally be described in terms of of *novelty* (how unique), *variety* (how 
+    The quality of an idea can generally be described in terms of *novelty* (how unique), *variety* (how 
     different), *quality* (how good), and *quantity* (how many). However, novelty, variety, and quality are 
     judgement calls made in relation to a complex system of interacting personal, social, and cultural factors. 
     Outside of this system, creativity does not exist. Unfortunately, technology is not a personality. Therefore, the 
@@ -143,7 +143,7 @@ st.markdown(
     Poor scholarship was a problem we did not expect to encounter with postgraduate students. Postgraduates are 
     generally expected to know how to reference academic articles. They have had at least 3 years of experience doing 
     so as an undergraduate. Being in the social sciences, they also should have been aware that the use of APA style 
-    is standard. We instead encountered essays that used unorthodox or idiosyncractic styles, or a commingling of 
+    is standard. We instead encountered essays that used unorthodox or idiosyncratic styles, or a commingling of 
     styles. It also appeared the students did not know how to use referencing tools such Endnote, Zotero, and 
     Mendeley. While a paid software, Endnote is typically made available to students for free at most universities. 
     Even though Endnote has never provided actual support for APA style, it is still sufficient, and more productive, 
