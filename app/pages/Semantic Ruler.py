@@ -12,7 +12,7 @@ st.set_page_config(
     )
 
 metadata = f"spaCy = {spacy.__version__}, {metadata['lang']}_{metadata['name']} = {metadata['version']} ({metadata['vectors']['vectors']} vectors with {metadata['vectors']['width']} dimensions)"
-st.caption(metadata)
+metadata
 st.title('Semantic Ruler')
 
 @st.cache(allow_output_mutation=True)
