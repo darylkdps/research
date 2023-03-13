@@ -11,8 +11,9 @@ st.set_page_config(
     initial_sidebar_state='auto'
     )
 
-metadata = f"spaCy = {spacy.__version__}, {metadata['lang']}_{metadata['name']} = {metadata['version']} ({metadata['vectors']['vectors']} vectors with {metadata['vectors']['width']} dimensions)"
-st.text(metadata)
+metadata1 = {key:value for key, value in nlp.meta.items() if key in {'lang', 'name', 'version', 'vectors'}}
+metadata2 = f"spaCy = {spacy.__version__}, {metadata1['lang']}_{metadata1['name']} = {metadata1['version']} ({metadata1['vectors']['vectors']} vectors with {metadata1['vectors']['width']} dimensions)"
+st.text(metadata2)
 st.title('Semantic Ruler')
 
 @st.cache(allow_output_mutation=True)
