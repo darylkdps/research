@@ -21,7 +21,7 @@ def load_model():
 nlp = load_model()
 
 metadata1 = {key:value for key, value in nlp.meta.items() if key in {'lang', 'name', 'version', 'vectors'}}
-metadata2 = f"*spaCy = {spacy.__version__}, {metadata1['lang']}_{metadata1['name']} = {metadata1['version']} ({metadata1['vectors']['vectors']} vectors with {metadata1['vectors']['width']} dimensions)*"
+metadata2 = f"*spaCy={spacy.__version__}, {metadata1['lang']}_{metadata1['name']}={metadata1['version']} ({metadata1['vectors']['vectors']} vectors with {metadata1['vectors']['width']} dimensions)*"
 caption_placeholder.caption(metadata2)
 
 default_title_word = 'leadership'
