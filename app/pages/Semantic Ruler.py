@@ -11,11 +11,7 @@ st.set_page_config(
     initial_sidebar_state='auto'
     )
 
-metadata = f'''
-    spaCy = {spacy.__version__}, \
-    {metadata['lang']}_{metadata['name']} = {metadata['version']} \
-    ({metadata['vectors']['vectors']} vectors with {metadata['vectors']['width']} dimensions)
-'''
+metadata = f"spaCy = {spacy.__version__}, {metadata['lang']}_{metadata['name']} = {metadata['version']} ({metadata['vectors']['vectors']} vectors with {metadata['vectors']['width']} dimensions)"
 st.caption(metadata)
 st.title('Semantic Ruler')
 
