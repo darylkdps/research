@@ -12,15 +12,13 @@ st.set_page_config(
     )
 
 st.title('Semantic Ruler')
-st.caption('spaCy \= 3.2.1, en_core_web_lg \= 3.2.0')
+st.caption('spaCy = 3.2.1, en_core_web_lg = 3.2.0')
 
 @st.cache(allow_output_mutation=True)
 def load_model():
     spacy.require_cpu()
     return spacy.load('en_core_web_lg')
 nlp = load_model()
-
-nlp.pipeline
 
 default_title_word = 'leadership'
 default_content_words = '''paper, pen, priority, decision, effort, mentor, stewardship, education, accountability, governance, leader, visualisation, cuisine, transform, chemistry, translate'''
