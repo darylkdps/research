@@ -202,14 +202,17 @@ st.markdown('---')
 st.header('Future direction')
 st.markdown(
     '''
-    The narrative needs to be more consistent. Presently, our narrative vacillates between ideation as just another 
-    term to describe the summative evaluation of academic performance, and ideation as a future-ready habit distinct 
-    from knowledge and skills. There is more value in presenting this work as one that fills a niche area. An area 
-    specifically addressing the ongoing development and evaluation of ideation as a habit.
+    1. The narrative needs to be more consistent. Presently, our narrative vacillates between ideation as just 
+    another term to describe the summative evaluation of academic performance, and ideation as a future-ready habit 
+    distinct from knowledge and skills. There is more value in presenting this work as one that fills a niche area. 
+    An area specifically addressing the ongoing development and evaluation of ideation as a habit.
 
-    There was insufficient data to work further. With more data, we could possibly explore examining only open class 
-    words such as nouns, verbs, adjectives, and adverbs for further de-noising. We could also explore coreference 
-    resolution to translate pronouns to the entity they reference. E.g., The *music* was so loud that *it* could not 
-    be enjoyed.
+    2. There was insufficient data to work further. With more data, we could possibly explore examining only open 
+    class words such as nouns, verbs, adjectives, and adverbs for further de-noising.
+     
+    3. We could also explore coreference resolution to translate pronouns to the entity they reference. E.g., The 
+    *music* was so loud that *it* could not be enjoyed.
+
+    4. Explore capturing the essay using a graph database.
     '''
 )
