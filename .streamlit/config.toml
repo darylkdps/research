@@ -11,7 +11,7 @@ maxUploadSize = 50
 [theme]
 
 base="dark"
-backgroundColor="#FFFFFF"
+backgroundColor="#FF0000"
 secondaryBackgroundColor="#FF0000"
 
 [browser]
