@@ -10,7 +10,7 @@ maxUploadSize = 50
 
 [theme]
 
-base="light"
+base="dark"
 
 [browser]
 gatherUsageStats = false
