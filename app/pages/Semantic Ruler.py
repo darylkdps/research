@@ -14,7 +14,7 @@ st.set_page_config(
 caption_placeholder = st.empty()
 st.title('Semantic Ruler')
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def load_model():
     spacy.require_cpu()
     return spacy.load('en_core_web_lg')
