@@ -10,9 +10,7 @@ maxUploadSize = 50
 
 [theme]
 
-base="dark"
-backgroundColor="#FF0000"
-secondaryBackgroundColor="#FF0000"
+base="light"
 
 [browser]
 gatherUsageStats = false
