@@ -144,33 +144,33 @@ if st.button('See similarity', key='cos_sim_button1'):
     similarity = nlp.vocab[cos_sim_input1].similarity(nlp.vocab[cos_sim_input2])
     st.write(round(similarity, 3))
 
-# Top N Nearest
-st.header('Top 10 nearest words')
+# # Top N Nearest
+# st.header('Top 10 nearest words')
 
-top_N_nearest_input1 = st.text_input(
-    label='Input a word:',
-    value='leadership',
-    max_chars=20,
-    key='top_N_nearest_input1',
-    )
-if st.button('See top 10 nearest', key='top_N_nearest_button1'):
-    def get_words_nearest(locus_word: str, nearest: int = 10):
-        ms = nlp.vocab.vectors.most_similar(
-            np.asarray([nlp.vocab.vectors[nlp.vocab.strings[locus_word]]]),
-            n=nearest
-            )
-        words = [nlp.vocab.strings[w] for w in ms[0][0]]
-        distances = ms[2]
-        return words
+# top_N_nearest_input1 = st.text_input(
+#     label='Input a word:',
+#     value='leadership',
+#     max_chars=20,
+#     key='top_N_nearest_input1',
+#     )
+# if st.button('See top 10 nearest', key='top_N_nearest_button1'):
+#     def get_words_nearest(locus_word: str, nearest: int = 10):
+#         ms = nlp.vocab.vectors.most_similar(
+#             np.asarray([nlp.vocab.vectors[nlp.vocab.strings[locus_word]]]),
+#             n=nearest
+#             )
+#         words = [nlp.vocab.strings[w] for w in ms[0][0]]
+#         distances = ms[2]
+#         return words
     
-    top_N = get_words_nearest(top_N_nearest_input1, nearest=100)
-    top_N_lower = [word.lower() for word in top_N]
-    top_N_lower = np.array(top_N_lower)
-    _, idx = np.unique(top_N_lower, return_index=True)
-    top_N_lower_list = list(top_N_lower[np.sort(idx)][1:11])
-    top_N_lower_list_cos = [f"{word}, {round(nlp.vocab[top_N_nearest_input1].similarity(nlp.vocab[word]), 3)}" for word in top_N_lower_list]
+#     top_N = get_words_nearest(top_N_nearest_input1, nearest=100)
+#     top_N_lower = [word.lower() for word in top_N]
+#     top_N_lower = np.array(top_N_lower)
+#     _, idx = np.unique(top_N_lower, return_index=True)
+#     top_N_lower_list = list(top_N_lower[np.sort(idx)][1:11])
+#     top_N_lower_list_cos = [f"{word}, {round(nlp.vocab[top_N_nearest_input1].similarity(nlp.vocab[word]), 3)}" for word in top_N_lower_list]
 
-    st.write(top_N_lower_list_cos)
+#     st.write(top_N_lower_list_cos)
 
 # Regex
 st.header('Regular expression')
