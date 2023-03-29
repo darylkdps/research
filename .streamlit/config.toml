@@ -12,7 +12,7 @@ maxUploadSize = 50
 
 base="dark"
 backgroundColor="#FFFFFF"
-secondaryBackgroundColor="#2222F6"
+secondaryBackgroundColor="#FF0000"
 
 [browser]
 gatherUsageStats = false
