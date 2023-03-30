@@ -264,11 +264,11 @@ ever, but also the cruelest and pettiest.
 if 'D:' in str(Path.cwd()):
     data_path = Path.cwd()
 else:
-    data_path = Path.cwd() / 'app'
+    data_path = Path.cwd() / 'app/pages'
 st.text(data_path)
 
-loaded_minmaxscaler_model = pickle.load(open('pages/minmaxscaler_model.sav', 'rb'))
-loaded_kneighborsclassifier_model = pickle.load(open('pages/kneighborsclassifier_model.sav', 'rb'))
+loaded_minmaxscaler_model = pickle.load(open(data_path / 'minmaxscaler_model.sav', 'rb'))
+loaded_kneighborsclassifier_model = pickle.load(open(data_path / 'kneighborsclassifier_model.sav', 'rb'))
 
 true_news_input1 = st.text_area(
     label='Input some news:',
