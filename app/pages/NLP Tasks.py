@@ -4,6 +4,7 @@ import pandas as pd
 import unicodedata
 import pickle
 import spacy
+from pathlib import Path
 
 st.set_page_config(
     page_title='NLP Task',
@@ -259,6 +260,12 @@ action. Donald: With your ban on trans people from the military, you are on noti
 You will regret it. Takei also tweeted: History shall record that you are not only the stupidest, most incompetent president 
 ever, but also the cruelest and pettiest.
 ''')
+
+if 'D:' in str(Path.cwd()):
+    data_path = Path.cwd() # / 'Data/'
+else:
+    data_path = Path.cwd() # / 'app/Data/'
+st.text(data_path)
 
 loaded_minmaxscaler_model = pickle.load(open('pages/minmaxscaler_model.sav', 'rb'))
 loaded_kneighborsclassifier_model = pickle.load(open('pages/kneighborsclassifier_model.sav', 'rb'))
