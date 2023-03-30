@@ -262,9 +262,9 @@ ever, but also the cruelest and pettiest.
 ''')
 
 if 'D:' in str(Path.cwd()):
-    data_path = Path.cwd() / 'pages'
+    data_path = str(Path.cwd() / 'pages')
 else:
-    data_path = Path.cwd() / 'app'
+    data_path = str(Path.cwd() / 'app' / 'pages')
 st.text(Path.cwd())
 st.text(data_path)
 
