@@ -262,14 +262,12 @@ ever, but also the cruelest and pettiest.
 ''')
 
 if 'D:' in str(Path.cwd()):
-    scaler_file = str(Path.cwd() / 'pages' / 'minmaxscaler_model.sav')
-    classifier_file = str(Path.cwd() / 'pages' / 'kneighborsclassifier_model.sav')
+    data_path = Path.cwd() / 'pages'
 else:
-    scaler_file = str(Path.cwd() / 'app' / 'pages' / 'minmaxscaler_model.sav')
-    classifier_file = str(Path.cwd() / 'app' / 'pages' / 'kneighborsclassifier_model.sav')
+    data_path = Path.cwd() / 'app' / 'pages'
 
-st.text(scaler_file)
-st.text(classifier_file)
+scaler_file = data_path / 'minmaxscaler_model.sav'
+classifier_file = data_path / 'kneighborsclassifier_model.sav'
 
 loaded_minmaxscaler_model = pickle.load(open(scaler_file, 'rb'))
 loaded_kneighborsclassifier_model = pickle.load(open(classifier_file, 'rb'))
@@ -288,7 +286,6 @@ if st.button('Classify news', key='classify_true_news_button1'):
     result = loaded_kneighborsclassifier_model.predict(doc_vec_scaled)
     result_msg = ':green[This news is likely true.]' if result else ':red[This news is likely fake.]'
     st.markdown(result_msg)
-
 
 fake_news_input1 = st.text_area(
     label='Input some news:',
