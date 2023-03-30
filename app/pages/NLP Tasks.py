@@ -99,7 +99,7 @@ st.header('Part of speech')
 
 pos_input1 = st.text_area(
     label='Input some text:',
-    value='''As an institute within a world-class research university, NIE also offers rigorous graduate education in the form of masters and doctoral programmes for local and international students.''',
+    value='''As an institute within a world-class research university, National Institute of Education also offers rigorous graduate education in the form of masters and doctoral programmes for local and international students.''',
     height=100,
     max_chars=250,
     key='pos_input1',
