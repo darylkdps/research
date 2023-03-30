@@ -107,6 +107,7 @@ pos_input1 = st.text_area(
 if st.button('See part of speech', key='pos_button1'):
     doc = nlp(pos_input1)
     st.write([f"text: '{token.text}', POS: {token.pos_} ({spacy.explain(token.pos_)})" for token in doc])
+    st.markdown(spacy.displacy.render(doc, style='dep', options={'bg': 'black', 'color': 'white', 'compact': False}, jupyter=False), unsafe_allow_html=True)
 
 # Named Entity Recognition
 st.header('Named entity recognition')
