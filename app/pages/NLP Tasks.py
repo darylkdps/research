@@ -229,7 +229,7 @@ vector_input1 = st.text_area(
 if st.button('Vectorise', key='vectorise_button1'):
     st.code(list(nlp(vector_input1).vector))
 
-st.subheader('*Machine learning*')
+st.subheader('*Machine learning: text classification*')
 
 st.markdown('''Reference true news:
 
