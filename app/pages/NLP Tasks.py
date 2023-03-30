@@ -59,7 +59,7 @@ st.header('Lemmatisation')
 
 lemmatisation_input1 = st.text_area(
     label='Input some text:',
-    value='''kites babies dogs flying smiling driving died tried feet bank swim swam swum swimming''',
+    value='''kites swim babies swam dogs flying smiling swimming driving died tried feet bank''',
     height=100,
     max_chars=250,
     key='lemmatisation_input1',
