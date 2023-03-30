@@ -262,9 +262,9 @@ ever, but also the cruelest and pettiest.
 ''')
 
 if 'D:' in str(Path.cwd()):
-    data_path = Path.cwd() # / 'Data/'
+    data_path = Path.cwd()
 else:
-    data_path = Path.cwd() # / 'app/Data/'
+    data_path = Path.cwd() / 'app'
 st.text(data_path)
 
 loaded_minmaxscaler_model = pickle.load(open('pages/minmaxscaler_model.sav', 'rb'))
