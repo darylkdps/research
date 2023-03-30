@@ -264,7 +264,7 @@ ever, but also the cruelest and pettiest.
 if 'D:' in str(Path.cwd()):
     data_path = Path.cwd() / 'pages'
 else:
-    data_path = Path.cwd() / 'app/pages'
+    data_path = Path.cwd() / 'app'
 st.text(data_path)
 
 loaded_minmaxscaler_model = pickle.load(open(data_path / 'minmaxscaler_model.sav', 'rb'))
