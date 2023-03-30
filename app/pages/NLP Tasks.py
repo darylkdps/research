@@ -275,7 +275,7 @@ loaded_kneighborsclassifier_model = pickle.load(open(classifier_file, 'rb'))
 true_news_input1 = st.text_area(
     label='Input some news:',
     value='''An old review of an academic monograph on agrarian revolutionaries in 1930s China is hardly a political third rail in Beijing today, even by the increasingly sensitive standards of the ruling Communist Party. That such a piece appeared on a list of some 300 scholarly works that Cambridge University Press (CUP) said last week the Chinese government had asked it to block from its website offers clues about the inner workings of China s vast and secretive censorship apparatus, say experts. President Xi Jinping has stepped up censorship and tightened controls on the internet and various aspects of civil society, as well as reasserting Communist Party authority over academia and other institutions, since coming to power in 2012.''',
-    height=150,
+    height=120,
     max_chars=1000,
     key='true_news_input1',
     )
@@ -290,7 +290,7 @@ if st.button('Classify news', key='classify_true_news_button1'):
 fake_news_input1 = st.text_area(
     label='Input some news:',
     value='''Our reality is carefully constructed by powerful corporate, political and special interest sources in order to covertly sway public opinion. Blatant lies are often televised regarding terrorism, food, war, health, etc. They are fashioned to sway public opinion and condition viewers to accept what have become destructive societal norms. The practice of manipulating and controlling public opinion with distorted media messages has become so common that there is a whole industry formed around this.''',
-    height=150,
+    height=120,
     max_chars=1000,
     key='fake_news_input1',
     )
