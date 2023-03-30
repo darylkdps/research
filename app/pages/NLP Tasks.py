@@ -262,14 +262,17 @@ ever, but also the cruelest and pettiest.
 ''')
 
 if 'D:' in str(Path.cwd()):
-    data_path = str(Path.cwd() / 'pages')
+    scaler_file = str(Path.cwd() / 'pages' / 'minmaxscaler_model.sav')
+    classifier_file = str(Path.cwd() / 'pages' / 'kneighborsclassifier_model.sav')
 else:
-    data_path = str(Path.cwd() / 'app' / 'pages')
-st.text(Path.cwd())
-st.text(data_path)
+    scaler_file = str(Path.cwd() / 'app' / 'pages' / 'minmaxscaler_model.sav')
+    classifier_file = str(Path.cwd() / 'app' / 'pages' / 'kneighborsclassifier_model.sav')
 
-loaded_minmaxscaler_model = pickle.load(open('minmaxscaler_model.sav', 'rb'))
-loaded_kneighborsclassifier_model = pickle.load(open('kneighborsclassifier_model.sav', 'rb'))
+st.text(scaler_file)
+st.text(classifier_file)
+
+loaded_minmaxscaler_model = pickle.load(open(scaler_file, 'rb'))
+loaded_kneighborsclassifier_model = pickle.load(open(classifier_file, 'rb'))
 
 true_news_input1 = st.text_area(
     label='Input some news:',
