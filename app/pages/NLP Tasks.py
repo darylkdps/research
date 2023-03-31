@@ -32,10 +32,9 @@ metadata2 = f"*spaCy={spacy.__version__}, {metadata1['lang']}_{metadata1['name']
 
 @st.cache_resource
 def load_df():
-    df_file = data_path / 'df_fake_true_clean.pkl'
-    df = pd.read_pickle(df_file)
-    index = [i for i in range(0, 50)] + [i for i in range(len(df) - 50, len(df))]
-    return df.iloc[index]
+    df_file = data_path / 'df_fake_true_clean_holdout.parquet'
+    df = pd.read_parquet(df_file)
+    return df
 df = load_df()
 
 @st.cache_resource
