@@ -83,7 +83,7 @@ st.header('Lemmatisation')
 
 lemmatisation_input1 = st.text_area(
     label='Input some text:',
-    value='''incoherent kites swim babies swam dogs flying smiling swimming driving died tried feet bank sentence''',
+    value='''incoherent match kites matches swim babies swam dogs flying smiling swimming driving died tried feet bank sentence''',
     height=100,
     max_chars=250,
     key='lemmatisation_input1',
