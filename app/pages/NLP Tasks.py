@@ -5,6 +5,8 @@ import unicodedata
 import pickle
 import spacy
 from pathlib import Path
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from textblob import TextBlob
 
 st.set_page_config(
     page_title='NLP Task',
@@ -49,6 +51,12 @@ def load_classifier():
     return pickle.load(open(classifier_file, 'rb'))
 loaded_kneighborsclassifier_model = load_classifier()
 
+@st.cache_resource
+def load_vadersentiment():
+    return SentimentIntensityAnalyzer()
+vader_analyzer = load_vadersentiment()
+
+####################################################################################################
 # Tokenisation
 st.header('Tokenisation')
 
@@ -78,6 +86,7 @@ if st.button('Tokenise', key='Tokenise_button2'):
     doc = nlp(tokenisation_input2)
     st.write([token.text for token in doc])
 
+####################################################################################################
 # Lemmatisation
 st.header('Lemmatisation')
 
@@ -104,7 +113,8 @@ if st.button('Lemmatise', key='Lemmatise_button2'):
     st.write([f"text: '{token.text}', lemma: '{token.lemma_}'" for token in doc])
     st.markdown(spacy.displacy.render(doc, style='dep', options={'bg': 'black', 'color': 'white', 'compact': False}, jupyter=False), unsafe_allow_html=True)
 
-# Stopwords
+####################################################################################################
+# Stopwords removal
 st.header('Stopwords removal')
 
 stopwords_input1 = st.text_area(
@@ -118,7 +128,8 @@ if st.button('Remove stopwords', key='stopwords_button1'):
     doc = nlp(stopwords_input1)
     st.write([token.text for token in doc if not token.is_stop and len(token.text) > 1])
  
-# Part of Speech
+####################################################################################################
+# Part of speech
 st.header('Part of speech')
 
 pos_input1 = st.text_area(
@@ -132,7 +143,8 @@ if st.button('See part of speech', key='pos_button1'):
     doc = nlp(pos_input1)
     st.write([f"text: '{token.text}', POS: {token.pos_} ({spacy.explain(token.pos_)})" for token in doc])    
 
-# Named Entity Recognition
+####################################################################################################
+# Named entity recognition
 st.header('Named entity recognition')
 
 ner_input1 = st.text_area(
@@ -147,8 +159,8 @@ if st.button('See named entities', key='ner_button1'):
     st.write([f"text: '{ent.text}', entity: {ent.label_} ({spacy.explain(ent.label_)})" for ent in doc.ents])
     st.markdown(spacy.displacy.render(doc, style='ent', options={'ents': None}, jupyter=False), unsafe_allow_html=True)
 
-
-# Semantic Similarity
+####################################################################################################
+# Semantic similarity
 st.header('Semantic similarity')
 
 col1, col2 = st.columns(2, gap='large')
@@ -170,7 +182,8 @@ if st.button('See similarity', key='cos_sim_button1'):
     similarity = nlp.vocab[cos_sim_input1].similarity(nlp.vocab[cos_sim_input2])
     st.write(round(similarity, 3))
 
-# # Top N Nearest
+####################################################################################################
+# # Top 10 nearest words
 # st.header('Top 10 nearest words')
 
 # top_N_nearest_input1 = st.text_input(
@@ -198,7 +211,8 @@ if st.button('See similarity', key='cos_sim_button1'):
 
 #     st.write(top_N_lower_list_cos)
 
-# Regex
+####################################################################################################
+# Regular expression
 st.header('Regular expression')
 
 st.markdown('''https://regex101.com/r/EET1sq/1''')
@@ -211,12 +225,14 @@ st.markdown('''https://regex101.com/r/EET1sq/1''')
 # ... study (Reiter-Palmon & Webb, 1999 ) found ...
 # ... study (Zhang & Webb, 1999 , 2000) found ...'''
 
-# Token Matcher
+####################################################################################################
+# Token matching
 st.header('Token matching')
 
 st.markdown('''https://demos.explosion.ai/matcher''')
 
-# Unicode Normalisation
+####################################################################################################
+# Unicode normalisation
 st.header('Unicode normalisation')
 
     # NFD:  Normalization Form Canonical Decomposition
@@ -240,6 +256,7 @@ if st.button('Normalise', key='unicode_normalisation_buttonKD'):
     normalised = unicodedata.normalize('NFKD', unicode_normalisation_input1).encode(encoding='ascii', errors='ignore').decode('ascii')
     st.text(normalised)
 
+####################################################################################################
 # Vectorisation
 st.header('Vectorisation')
 
@@ -253,42 +270,11 @@ vector_input1 = st.text_area(
 if st.button('Vectorise', key='vectorise_button1'):
     st.code(list(nlp(vector_input1).vector))
 
+####################################################################################################
+# Vectorisation: Machine learning: text classification
 st.subheader('*Machine learning: text classification*')
 
-
-
-
 st.dataframe(df, width=None, height=None, use_container_width=True)
-
-# st.markdown('''Reference true news:
-
-# Turkish authorities have issued detention warrants for 216 people, including former finance ministry personnel, suspected 
-# of having links to last year's failed coup attempt, the state-run Anadolu news agency said on Wednesday. It said 17 former 
-# finance ministry personnel had been detained so far and another 65 were sought over alleged links to Gulen's network, Anadolu 
-# said. Separately, authorities carried out operations across 40 provinces targeting private imams believed to be recruiting members 
-# to the network of U.S.-based cleric Fethullah Gulen from Turkey's armed forces. Ankara blames Gulen for orchestrating the 
-# July 15 coup attempt last year and has repeatedly demanded the United States extradite him, so far in vain. Gulen denies 
-# involvement. In the aftermath of the coup, more than 50,000 people have been jailed pending trial and some 150,000 have 
-# been sacked or suspended from their jobs in the military, public and private sector. The extent of the purges has unnerved 
-# rights groups and Turkey's Western allies, who fear President Tayyip Erdogan is using the abortive putsch as a pretext 
-# to stifle dissent. The government, however, says the measures are necessary due to the gravity of the threats it is facing 
-# following the military coup attempt, in which 240 people were killed.
-# ''')
-
-# st.markdown('''Reference fake news:
-
-# Hollywood stars took to social media Wednesday to express outrage over President Donald Trump's announcement that transgender 
-# people will not be allowed to serve in the U.S. military, reversing former President Obama's decision last year allowing 
-# them to do so. After consultation with my Generals and military experts, please be advised that the United States Government 
-# will not accept or allow Transgender individuals to serve in any capacity in the U.S. Military, President Trump tweeted 
-# Wednesday morning. Our military must be focused on decisive and overwhelming victory and cannot be burdened with the tremendous 
-# medical cost and disruption that transgender in the military would entail. Thank you. The news spurred some stars to viciously 
-# attack the president, with some calling Trump a cruel bigot. Star Trek actor and gay activist George Takei sent what appeared 
-# to be a threat to Trump, warning that he  just pissed off the wrong community  and said the president  will regret this 
-# action. Donald: With your ban on trans people from the military, you are on notice that you just pissed off the wrong community. 
-# You will regret it. Takei also tweeted: History shall record that you are not only the stupidest, most incompetent president 
-# ever, but also the cruelest and pettiest.
-# ''')
 
 true_news_input1 = st.text_area(
     label='Input some news:',
@@ -319,3 +305,33 @@ if st.button('Classify news', key='classify_fake_news_button1'):
     result = loaded_kneighborsclassifier_model.predict(doc_vec_scaled)
     result_msg = ':green[This news is likely true.]' if result else ':red[This news is likely fake.]'
     st.markdown(result_msg)
+
+####################################################################################################
+# Sentiment analysis: VADER (Valence Aware Dictionary and sEntiment Reasoner)
+st.header('Sentiment analysis: VADER (Valence Aware Dictionary and sEntiment Reasoner)')
+
+vader_input1 = st.text_input(
+    label='Input words for sentiment analysis:',
+    value="I don't like pizza.",
+    max_chars=100,
+    key='vader_input1',
+    )
+
+if st.button('Analyse sentiment polarity', key='analyse_vader_button1'):
+    vader_result = vader_analyzer.polarity_scores(vader_input1)
+    st.code(vader_result)
+
+####################################################################################################
+# Sentiment analysis: TextBlob
+st.header('Sentiment analysis: TextBlob')
+
+textblob_input1 = st.text_input(
+    label='Input words for sentiment analysis:',
+    value="I don't like pizza.",
+    max_chars=100,
+    key='textblob_input1',
+    )
+
+if st.button('Analyse sentiment polarity', key='analyse_textblob_button1'):
+    textblob_result = TextBlob(textblob_input1).sentiment
+    st.code(textblob_result)
