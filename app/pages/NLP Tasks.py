@@ -320,7 +320,7 @@ vader_input1 = st.text_input(
 if st.button('Analyse sentiment polarity', key='analyse_vader_button1'):
     vader_result = vader_analyzer.polarity_scores(vader_input1)
     st.code(vader_result)
-    st.caption("polarity: -1.0 is negative and 1.0 is positive.")
+    st.caption("compound: -1.0 is negative and 1.0 is positive.")
 
 ####################################################################################################
 # Sentiment analysis: TextBlob
