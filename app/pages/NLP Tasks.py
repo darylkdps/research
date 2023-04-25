@@ -335,4 +335,4 @@ textblob_input1 = st.text_input(
 if st.button('Analyse sentiment polarity', key='analyse_textblob_button1'):
     textblob_result = TextBlob(textblob_input1).sentiment
     st.code(textblob_result)
-    st.caption("polarity: -1.0 is negative and 1.0 is positive.\nsubjectivity: 0.0 is very objective and 1.0 is very subjective.")
+    st.caption("polarity: -1.0 is negative and 1.0 is positive.\n\nsubjectivity: 0.0 is very objective and 1.0 is very subjective.")
