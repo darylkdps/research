@@ -6,14 +6,14 @@ import re
 import spacy
 
 st.set_page_config(
-    page_title='Semantic Ruler YISS',
+    page_title='Ideation Scoring 1',
     page_icon='📏',
     layout='wide',
     initial_sidebar_state='auto'
     )
 
 caption_placeholder = st.empty()
-st.title('Semantic Ruler YISS')
+st.title('Ideation Scoring 1')
 
 @st.cache_resource
 def load_model():
@@ -76,11 +76,13 @@ default_content_words = ''
 
 sl_title_words = st.text_input(
     label='Title:',
+    placeholder='Ideation',
     value=default_title_words,
     )
 
 sl_content_words = st.text_input(
     label='Content:',
+    placeholder='I had to ideate stuff during Design and Technology.',
     value=default_content_words,
     )
 
