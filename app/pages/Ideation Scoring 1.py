@@ -76,13 +76,13 @@ default_content_words = ''
 
 sl_title_words = st.text_input(
     label='Title:',
-    placeholder='Ideation',
+    placeholder='Example: Ideation',
     value=default_title_words,
     )
 
 sl_content_words = st.text_input(
     label='Content:',
-    placeholder='I had to ideate stuff during Design and Technology.',
+    placeholder='Example: I had to ideate stuff during Design and Technology.',
     value=default_content_words,
     )
 
