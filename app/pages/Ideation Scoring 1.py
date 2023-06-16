@@ -82,7 +82,7 @@ sl_title_words = st.text_input(
 
 sl_content_words = st.text_input(
     label='Content:',
-    placeholder='Example: I had to ideate stuff during Design and Technology.',
+    placeholder='Example: I had to ideate stuff in class.',
     value=default_content_words,
     )
 
