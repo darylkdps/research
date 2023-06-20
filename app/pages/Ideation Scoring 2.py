@@ -275,7 +275,7 @@ col1, col2, _ = st.columns([0.1, 0.1, 1.2], gap='small')
 
 with col1:
     clear_data_editor_button = st.button(
-        '  Clear  ',
+        'Clear',
         key='clear_data_editor_button',
         help='Clear input',
         on_click=reset_sl_data_editor_key,
@@ -286,7 +286,7 @@ with col1:
 
 with col2:
     compute_data_editor_button = st.button(
-        '  Compute  ',
+        'Compute',
         key='compute_data_editor_button',
         help='Compute cosine similarities',
         on_click=None,
