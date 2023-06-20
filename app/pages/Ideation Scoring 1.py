@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly.express as px
+
 import re
 import spacy
 
@@ -64,6 +64,7 @@ def tokenise(text: str) -> list:
             len(token) > 1
         )
     ]
+    tokens = list(map(str.lower, tokens))
 
     return tokens
 
@@ -76,14 +77,34 @@ default_content_words = ''
 
 sl_title_words = st.text_input(
     label='Title:',
-    placeholder='Example: Ideation',
     value=default_title_words,
+    max_chars=None,
+    key=None,
+    type='default',
+    help='Enter a title word. Typos will be ignored.',
+    autocomplete=None,
+    on_change=None,
+    args=None,
+    kwargs=None,
+    placeholder='Example: Ideation',
+    disabled=False,
+    label_visibility='visible'
     )
 
 sl_content_words = st.text_input(
     label='Content:',
-    placeholder='Example: I had to ideate stuff in class.',
     value=default_content_words,
+    max_chars=None,
+    key=None,
+    type='default',
+    help='Enter the content words. Typos will be ignored.',
+    autocomplete=None,
+    on_change=None,
+    args=None,
+    kwargs=None,
+    placeholder='Example: I had to ideate stuff in class.',
+    disabled=False,
+    label_visibility='visible'
     )
 
 title_tokenised = tokenise(clean_text(sl_title_words))
@@ -93,34 +114,34 @@ data = [(title_token, content_token, np.round(nlp.vocab[title_token].similarity(
 df = pd.DataFrame(data=data, columns=['Title Word', 'Content Word', 'Cosine Similarity'])
 
 column_config = {
-    "Title Word": st.column_config.TextColumn(
+    'Title Word': st.column_config.TextColumn(
         label=None,
-        width=None,
-        help="The title",
+        width='medium',
+        help='The title component of the word pair.',
         disabled=True,
         required=None,
         default=None,
         max_chars=None,
         validate=None
     ),
-    "Content Word": st.column_config.TextColumn(
+    'Content Word': st.column_config.TextColumn(
         label=None,
-        width=None,
-        help="The content",
+        width='medium',
+        help='The content component of the word pair.',
         disabled=True,
         required=None,
         default=None,
         max_chars=None,
         validate=None
     ),
-    "Cosine Similarity": st.column_config.NumberColumn(
+    'Cosine Similarity': st.column_config.NumberColumn(
         label=None,
         width=None,
-        help="The cosine similarity",
+        help='The semantic distance between the title and content words. Ranges from -1.0 to 1.0.',
         disabled=True,
         required=False,
         default=None,
-        format="%.3f",
+        format='%.3f',
         min_value=None,
         max_value=None,
         step=None
