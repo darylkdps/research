@@ -271,7 +271,7 @@ sl_de = st.data_editor(
     kwargs=None
 )
 
-col1, col2, _ = st.columns([0.125, 0.125, 1.2], gap='small')
+col1, col2, _ = st.columns([0.1, 0.1, 1.2], gap='small')
 
 with col1:
     clear_data_editor_button = st.button(
