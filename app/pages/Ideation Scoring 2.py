@@ -205,7 +205,7 @@ def export_word_pairs():
         worksheet.set_column(0, max_col - 1, 15)
 
         # Close the Pandas Excel writer and output the Excel file.
-        writer.close()
+        # writer.close()
         #####
 
     st.download_button(
