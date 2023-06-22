@@ -9,7 +9,7 @@ st.set_page_config(
     page_title='Ideation Scoring 1',
     page_icon='📏',
     layout='wide',
-    initial_sidebar_state='auto'
+    initial_sidebar_state='collapsed'
     )
 
 caption_placeholder = st.empty()
