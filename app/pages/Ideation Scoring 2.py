@@ -186,9 +186,27 @@ def export_word_pairs():
     
     buffer = BytesIO()
     with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
-        df_word_pairs.to_excel(writer, sheet_name='Word Pairs', index=False)
+        # df_word_pairs.to_excel(writer, sheet_name='Word Pairs', index=False)
+        # writer.close()
 
+        df_word_pairs.to_excel(writer, sheet_name='Word Pairs', startrow=1, header=False, index=False, float_format="%.3f")
+        worksheet = writer.sheets['Word Pairs']
+
+        # Get the dimensions of the dataframe.
+        (max_row, max_col) = df_word_pairs.shape
+
+        # Create a list of column headers, to use in add_table().
+        column_settings = [{'header': column} for column in df_word_pairs.columns]
+
+        # Add the Excel table structure. Pandas will add the data.
+        worksheet.add_table(0, 0, max_row, max_col - 1, {'columns': column_settings, 'name': 'tbl_Word_Pairs'})
+
+        # Make the columns wider for clarity.
+        worksheet.set_column(0, max_col - 1, 15)
+
+        # Close the Pandas Excel writer and output the Excel file.
         writer.close()
+        #####
 
     st.download_button(
         label='Download data as .xlsx',
@@ -271,7 +289,7 @@ sl_de = st.data_editor(
     kwargs=None
 )
 
-col1, col2, _ = st.columns([0.1, 0.1, 1.2], gap='small')
+col1, col2, _, _ = st.columns([0.2, 0.2, 1.0, 1.0], gap='small')
 
 with col1:
     clear_data_editor_button = st.button(
@@ -297,9 +315,11 @@ with col2:
 
 if clear_data_editor_button:
     # st.write(st.session_state['sl_data_editor_key'])
+    st.write(len(sl_de))
     pass
+    
 
 if compute_data_editor_button:
     if len(sl_de) != 0:
-        sl_de = sl_de.applymap(clean_text)
+        sl_de = sl_de.applymap(clean_text, na_action='ignore')
         export_word_pairs()
