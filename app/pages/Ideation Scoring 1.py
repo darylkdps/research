@@ -15,13 +15,13 @@ st.set_page_config(
 caption_placeholder = st.empty()
 st.title('Ideation Scoring 1')
 
-@st.cache_resource(ttl='2h')
+@st.cache_resource
 def load_model():
     spacy.require_cpu()
     return spacy.load('en_core_web_lg')
 nlp = load_model()
 
-@st.cache_resource(ttl='2h')
+@st.cache_resource
 def clean_text(text: str) -> str:
     '''Clean text by remapping specified characters, then removing extraneous spaces.'''
     # Characters mapping table
