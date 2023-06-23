@@ -20,7 +20,7 @@ if 'C:\\' in str(Path.cwd()) or 'D:\\' in str(Path.cwd()):
 else:
     data_path = Path.cwd() / 'app' / 'pages'
 
-@st.cache_resource
+@st.cache_resource(ttl=3600)
 def load_nlp_model():
     spacy.require_cpu()
     return spacy.load('en_core_web_lg')
@@ -32,26 +32,26 @@ metadata1 = {key:value for key, value in nlp.meta.items() if key in {'lang', 'na
 metadata2 = f"*spaCy={spacy.__version__}, {metadata1['lang']}_{metadata1['name']}={metadata1['version']} ({metadata1['vectors']['vectors']} vectors with {metadata1['vectors']['width']} dimensions)*"
 # caption_placeholder.caption(metadata2)
 
-@st.cache_resource
+@st.cache_resource(ttl=600)
 def load_df():
     df_file = data_path / 'df_fake_true_clean_holdout.parquet'
     df = pd.read_parquet(df_file)
     return df
 df = load_df()
 
-@st.cache_resource
+@st.cache_resource(ttl=600)
 def load_scaler():
     scaler_file = data_path / 'minmaxscaler_model.sav'
     return pickle.load(open(scaler_file, 'rb'))
 loaded_minmaxscaler_model = load_scaler()
 
-@st.cache_resource
+@st.cache_resource(ttl=600)
 def load_classifier():
     classifier_file = data_path / 'kneighborsclassifier_model.sav'
     return pickle.load(open(classifier_file, 'rb'))
 loaded_kneighborsclassifier_model = load_classifier()
 
-@st.cache_resource
+@st.cache_resource(ttl=600)
 def load_vadersentiment():
     return SentimentIntensityAnalyzer()
 vader_analyzer = load_vadersentiment()
