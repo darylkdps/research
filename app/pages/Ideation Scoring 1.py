@@ -9,19 +9,19 @@ st.set_page_config(
     page_title='Ideation Scoring 1',
     page_icon='📏',
     layout='wide',
-    initial_sidebar_state='collapsed'
+    initial_sidebar_state='auto'
     )
 
 caption_placeholder = st.empty()
 st.title('Ideation Scoring 1')
 
-@st.cache_resource
+@st.cache_resource(ttl='2h')
 def load_model():
     spacy.require_cpu()
     return spacy.load('en_core_web_lg')
 nlp = load_model()
 
-@st.cache_resource
+@st.cache_resource(ttl='2h')
 def clean_text(text: str) -> str:
     '''Clean text by remapping specified characters, then removing extraneous spaces.'''
     # Characters mapping table
@@ -46,7 +46,7 @@ def clean_text(text: str) -> str:
 
     return extraneous_spaces_stripped
 
-@st.cache_resource
+# @st.cache_resource
 def tokenise(text: str) -> list:
     '''Convert string to spacy.Language object and get valid and lemmatised tokens.'''
     open_class_pos = ['ADJ', 'ADV', 'NOUN', 'PROPN', 'VERB']  # Excluded 'INTJ'

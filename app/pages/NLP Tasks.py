@@ -12,7 +12,7 @@ st.set_page_config(
     page_title='NLP Task',
     page_icon='📏',
     layout='wide',
-    initial_sidebar_state='collapsed'  # auto, expanded, collapsed
+    initial_sidebar_state='auto'  # auto, expanded, collapsed
     )
 
 if 'C:\\' in str(Path.cwd()) or 'D:\\' in str(Path.cwd()):
